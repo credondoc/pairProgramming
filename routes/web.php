@@ -14,5 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/concierto');
 });
+
+Route::get('/concierto', '\App\Http\Controllers\ConciertoController@show')
+    ->name('concierto.show');
+
+Route::post('/concierto', '\App\Http\Controllers\ConciertoController@create')
+    ->name('concierto.create');
